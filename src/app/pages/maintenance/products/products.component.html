@@ -1,0 +1,193 @@
+<div class="container">
+    <div class="toolbar" *ngIf="modalIsShow==false">
+        <button (click)="toggleAdd()" class="btn btn-primary"><i class="bi bi-plus-lg"></i> ADD NEW</button>
+    </div>
+
+    <div class="toolbar" *ngIf="modalIsShow==true">
+        <button (click)="toggleAdd()" class="btn btn-danger m-r-10"> CANCEL</button>
+        <button  class="btn btn-primary" (click)="saveProduct()">SAVE</button>
+    </div>
+</div>
+
+<div class="container" *ngIf="modalIsShow==true">
+    <div class="card" >
+        <div class="row">
+            
+            <div class="col">
+                <img [src] = "product_main_img" style="width:250px;height: 250px;float:right">
+                <input type="file" id="product_main_img" (change)="handleUpload($event)">
+                <!-- <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" class="form-control" id="product_name" [(ngModel)]="product_name" >
+                </div> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" class="form-control" id="product_name" [(ngModel)]="product_name" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="product_desc">Product Description</label>
+                    <textarea class="form-control" id="product_desc" [(ngModel)]="product_desc" ></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="brand_name">Brand</label>
+                    <select [(ngModel)]="brand_name" class="form-control" id="brand_name">
+                        <option value="" class="form-control" id="category"></option>
+                        <option value="{{bra.id}}" *ngFor="let bra of brand_list">{{ bra.brand_name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="category_name">Category</label>
+                    <select [(ngModel)]="category_name" class="form-control" id="category_name">
+                        <option value=""></option>
+                        <option value="{{cat.id}}" *ngFor="let cat of category_list">{{ cat.category_name }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <div class="col">
+                    <button type="button" class="btn" (click)="toggleNewSize()"><i class="bi bi-plus-lg"></i> Add Size</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th>Size</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tr *ngIf="newSizeIsShow==true">
+                        <td>
+                            <button class="btn" (click)="addSize()">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" [(ngModel)]="new_size_name">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" [(ngModel)]="new_size_price" value="0.00">
+                        </td>
+                    </tr>
+                    <tr *ngIf="new_sizes.length == 0">
+                        <td colspan="4" align="center">
+                            No size(s) added.
+                        </td>
+                    </tr>
+                    <tr *ngFor="let size of new_sizes">
+                        <td></td>
+                        <td>{{ size.size }}</td>
+                        <td>{{ size.price }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <div class="col">
+                    <button type="button" class="btn" (click)="toggleAddColor()"><i class="bi bi-plus-lg"></i> Add Color</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Additional Price</th>
+                        </tr>
+                    </thead>
+    
+                    <tr *ngIf="newColorIsShow==true">
+                        <td>
+                            <button class="btn" (click)="addColor()">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <select [(ngModel)]="new_color_size">
+                                <option *ngFor="let size of new_sizes" value="{{ size.size }}">{{ size.size }} </option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" [(ngModel)]="new_color_name">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" [(ngModel)]="new_color_add_price" value="0.00">
+                        </td>
+                    </tr>
+                    <tr *ngIf="new_colors.length == 0">
+                        <td colspan="4" align="center">
+                            No color(s) added.
+                        </td>
+                    </tr>
+                    <tr *ngFor="let colors of new_colors">
+                        <td></td>
+                        <td>{{ colors.size }}</td>
+                        <td>{{ colors.color }}</td>
+                        <td>{{ colors.price }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+       <table class="table table-striped">
+           <thead>
+               <tr>
+                   <th>ID</th>
+                   <th>PRODUCT NAME</th>
+                   <th>CATEGORY NAME</th>
+                   <th>BRAND NAME</th>
+                   <th>VARIETIES</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let product of product_list">
+                   <td>
+                    {{ product.id }}
+                   </td>
+                   <td>
+                    {{ product.product_name }}
+                   </td>
+                   <td>
+                    {{ product.category_name }}
+                   </td>
+                   <td>
+                    {{ product.brand_name }}
+                   </td>
+                   <td>
+                       <div *ngFor = "let size of product.sizes">
+                         <b> {{ size.size }}</b> - {{ size.price }} <br>
+                         Available Colors
+                         <div *ngFor = "let color of size.colors">
+                             <span style="left:15px;">
+                                  - {{ color.color }} - {{ color.add_price }} (Add'l charge)
+                             </span>
+                         </div>
+                       </div>
+                   </td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+</div>

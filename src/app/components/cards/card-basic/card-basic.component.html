@@ -1,0 +1,24 @@
+
+<div class="card-basic" *ngFor ="let ls of data" [routerLink]="['/product',ls.key]">
+    <div class="container">
+        <div class="card-basic__container">
+            <div class="card-basic__image-holder">
+                <img [src]="ls.img" alt="" />
+            </div>
+    
+            <div class="card-basic__details">
+                <div class="title">
+
+                    {{ ls.product_name }}
+   
+                    </div>
+                <div class="description">
+                    {{ ls.product_desc }}
+                </div>
+                <div class="price">
+                    ₱ {{ ls.price }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

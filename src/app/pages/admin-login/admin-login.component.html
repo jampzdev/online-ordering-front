@@ -1,0 +1,28 @@
+<body>
+    <div class="container" style="width: 500px;height:600px !important;">
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="pwd">Password</label>
+                        <input type="password" class="form-control" id="pwd" [(ngModel)]="passhash">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary w-100 m-t-10" (click)="auth()">LOGIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

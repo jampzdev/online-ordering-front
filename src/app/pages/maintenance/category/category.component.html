@@ -1,0 +1,32 @@
+<div class="toolbar">
+    <button (click)="toggleAdd()">{{ modalIsShow }} </button>
+</div>
+
+<div class="card" *ngIf="modalIsShow=='CANCEL'">
+    <table class='table'>
+        <tr>
+            <td>Category Name</td>
+            <td><input type="text" [(ngModel)]="category_name"></td>
+            <td>
+                <button (click)="saveCategory()">SAVE</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+   <table class="table table-striped">
+       <tr>
+           <th>ID</th>
+           <th>CATEGORY NAME</th>
+       </tr>
+       <tr *ngFor="let category of category_list">
+           <td align="center">
+            {{ category.id }}
+           </td>
+           <td align="center">
+            {{ category.category_name }}
+           </td>
+       </tr>
+   </table>
+</div>

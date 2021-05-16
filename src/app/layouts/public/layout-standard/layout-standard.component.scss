@@ -1,0 +1,74 @@
+.example-container {
+  height: 100% !important;
+}
+
+.example-sidenav {
+  width: 300px;
+}
+
+$backgroundColor: "#000000";
+$fontColor: "#ffffff";
+
+.sidebar {
+  margin: auto;
+  &__userinfo {
+    background-color: blue;
+    margin: auto;
+    width: 90%;
+    height: 100px;
+    border: 3px solid #73ad21;
+    display: flex;
+
+    &__image {
+      background-color: green;
+      width: 30%;
+    }
+
+    &__details {
+      background-color: black;
+      width: 70%;
+    }
+  }
+
+  &__links {
+    margin: auto;
+    height: 100px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 16px;
+      li {
+        display: block;
+        padding-bottom: 7px;
+        cursor: pointer;
+        ul {
+          padding-left: 10px;
+          li:hover {
+            display: block;
+            padding-bottom: 7px;
+            cursor: pointer;
+
+            a {
+              padding: 10px;
+              display: block;
+              text-decoration: none;
+              &:hover {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+
+        a {
+          padding: 10px;
+          display: block;
+          text-decoration: none;
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+}

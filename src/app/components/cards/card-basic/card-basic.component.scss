@@ -1,0 +1,45 @@
+@import "~src/styles.scss";
+
+.card-basic {
+  cursor: pointer;
+  display: inline-block;
+  background-color: white;
+  margin: 10px;
+  &__container {
+    width: 315px;
+  }
+
+  &__image-holder {
+    overflow: hidden;
+    // width: 315px;
+
+    img {
+      transition: transform 0.15s ease;
+
+      &:hover {
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__details {
+    padding: 5px 0px 10px;
+
+    .title {
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .description {
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 15px;
+      color: orange;
+    }
+  }
+}

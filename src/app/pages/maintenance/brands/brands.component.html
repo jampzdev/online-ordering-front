@@ -1,0 +1,32 @@
+<div class="toolbar">
+    <button (click)="toggleAdd()">{{ modalIsShow }}</button>
+</div>
+
+<div class="card" *ngIf="modalIsShow=='CANCEL'">
+    <table class='table'>
+        <tr>
+            <td>Brand Name</td>
+            <td><input type="text" [(ngModel)]="brand_name"></td>
+            <td>
+                <button (click)="saveBrand()">SAVE</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+   <table class="table table-striped">
+       <tr>
+           <th>ID</th>
+           <th>BRAND NAME</th>
+       </tr>
+       <tr *ngFor="let brand of brand_list">
+           <td align="center">
+            {{ brand.id }}
+           </td>
+           <td align="center">
+            {{ brand.brand_name }}
+           </td>
+       </tr>
+   </table>
+</div>

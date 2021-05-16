@@ -1,0 +1,43 @@
+<mat-toolbar style="background-color: {{color_theme}}">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()" style="color: {{color_font_theme}}">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span style="color: {{color_font_theme}}">{{ title }} </span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="color: {{color_font_theme}}">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" style="color: {{color_font_theme}}">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="sidebar">
+            <div class="sidebar__links">
+                <ul>
+                    <li *ngFor="let links of sidebar">
+                        <a *ngIf="!links.submenu"[routerLink]="links.link" (click)="drawer.toggle()">{{links.label }}</a>
+                        <a *ngIf="links.submenu">{{links.label }}</a>
+
+                        <div *ngIf="links.submenu">
+                            <ul *ngFor="let sublinks of links.submenu">
+                                <li >
+                                    <a [routerLink]="sublinks.link" (click)="drawer.toggle()">
+                                        {{sublinks.label }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
