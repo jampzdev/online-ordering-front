@@ -14,7 +14,52 @@
 
                 </div>
                 <div class="price">
-                    ₱ dsaf
+                    <span *ngIf="selected_size.length!=0">
+                        ₱ {{ total_price }}
+                    </span>
+                    <span *ngIf="selected_size.length==0">
+                        ₱ {{ itemInfo.sizes[0].price }}
+                    </span>
+                </div>
+
+                <div class="sizes">
+                    Sizes
+                    <ul>
+                        <li *ngFor="let size of itemInfo.sizes;let i = index">
+                            <a (click)="setSize(size,i)" id="size_{{ i }}">{{ size.size }}</a>
+                        </li>
+                    </ul>
+            
+                </div>
+
+                <div class="colors">
+                    Colors
+                    <ul *ngIf="colors_list.length == 0">
+                        <li *ngFor="let color of itemInfo.sizes[0].colors">
+                            <a (click)="setColor(color)">{{ color.color }}</a>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="colors_list.length != 0">
+                        <li *ngFor="let color of colors_list">
+                            <a (click)="setColor(color)">{{ color.color }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="input">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="qty">Qty</label>
+                                <input id="qty" type="text" class="form-control" [(ngModel)]="qty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
                 </div>
             </div>
 

@@ -4,16 +4,23 @@
     </button>
     <span style="color: {{color_font_theme}}">{{ title }} </span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="color: {{color_font_theme}}">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" style="color: {{color_font_theme}}">
-        <mat-icon>share</mat-icon>
-    </button>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
     <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="admin_info">
+            <ul>
+                <li>
+                    <span class="display_name">
+                        {{ user_logged_in.displayname }}
+                    </span>
+
+                </li>
+                <li>
+                    <a class="logout" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
         <div class="sidebar">
             <div class="sidebar__links">
                 <ul>

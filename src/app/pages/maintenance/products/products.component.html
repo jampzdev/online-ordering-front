@@ -16,10 +16,6 @@
             <div class="col">
                 <img [src] = "product_main_img" style="width:250px;height: 250px;float:right">
                 <input type="file" id="product_main_img" (change)="handleUpload($event)">
-                <!-- <div class="form-group">
-                    <label for="product_name">Product Name</label>
-                    <input type="text" class="form-control" id="product_name" [(ngModel)]="product_name" >
-                </div> -->
             </div>
         </div>
         <div class="row">
@@ -154,7 +150,8 @@
        <table class="table table-striped">
            <thead>
                <tr>
-                   <th>ID</th>
+                   <th>ACTION(S)</th>
+                   <th></th>
                    <th>PRODUCT NAME</th>
                    <th>CATEGORY NAME</th>
                    <th>BRAND NAME</th>
@@ -162,9 +159,15 @@
                </tr>
            </thead>
            <tbody>
+               <tr *ngIf="product_list.length == 0">
+                <td colspan="5" align="center">No record(s) found.</td>
+               </tr>
                <tr *ngFor="let product of product_list">
                    <td>
                     {{ product.id }}
+                   </td>
+                   <td>
+                    <img src= "{{product.img}}" style="width: 90px;height: 100px;"/>
                    </td>
                    <td>
                     {{ product.product_name }}
@@ -178,7 +181,7 @@
                    <td>
                        <div *ngFor = "let size of product.sizes">
                          <b> {{ size.size }}</b> - {{ size.price }} <br>
-                         Available Colors
+                         <small>Available Colors</small>
                          <div *ngFor = "let color of size.colors">
                              <span style="left:15px;">
                                   - {{ color.color }} - {{ color.add_price }} (Add'l charge)

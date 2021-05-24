@@ -1,6 +1,21 @@
 <!-- <div class="card"> -->
-    Products
+    <div class="first_row">
+        <div class="first_row__category-menu">
+            <app-card-category-menu [options]="category_list"></app-card-category-menu>
+        </div>
+        <div class="first_row__carousel">
+            asdasda
+        </div>
+    </div>
+
+
+
+
     <div class="product_list">
+        <div class="product_list__header">
+            <h6 class="product_list__title">Products you might like</h6>
+            <a routerLink="">View More</a>
+        </div>
         <div class="product_list__overflow">
             <app-card-basic [data]="inventory_list"></app-card-basic>
 

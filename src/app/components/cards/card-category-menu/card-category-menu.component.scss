@@ -1,0 +1,66 @@
+@import "~src/styles.scss";
+
+.card-category-menu {
+    width: 100%;
+    color: #333333;
+
+    &__header {
+        padding: 5px 10px;
+        background-color: #f5f7f8;
+        font-size: 16px;
+        font-weight: normal;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            color: #00aaee;
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    &__content {
+        background-color: #fff;
+
+        a {
+            color: #333;
+        }
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        padding: 6px 10px;
+        position: relative;
+
+        &:after {
+            content: "";
+            border: solid #333;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+            padding: 3px;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__icon {
+        margin-right: 10px;
+    }
+}

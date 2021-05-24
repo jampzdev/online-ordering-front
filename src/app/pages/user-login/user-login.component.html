@@ -1,0 +1,73 @@
+<body>
+    <div *ngIf="isRegister==false" class="container" style="width: 500px;height:600px !important;">
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="pwd">Password</label>
+                        <input type="password" class="form-control" id="pwd" [(ngModel)]="passhash">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary w-100 m-t-10" (click)="auth()">LOGIN</button>
+                    <button class="btn btn-red c-white w-100 m-t-10" (click)="toggleRegister()">SIGNUP</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="isRegister==true" class="container" style="width: 500px;height:600px !important;">
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="pwd">Firstname</label>
+                        <input type="text" class="form-control" id="pwd" [(ngModel)]="fname">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="pwd">Middlename</label>
+                        <input type="text" class="form-control" id="pwd" [(ngModel)]="mname">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="pwd">Lastname</label>
+                        <input type="text" class="form-control" id="pwd" [(ngModel)]="lname">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary w-100 m-t-10" (click)="register()">REGISTER</button>
+                    <button class="btn btn-red c-white w-100 m-t-10" (click)="toggleRegister()">BACK TO LOGIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

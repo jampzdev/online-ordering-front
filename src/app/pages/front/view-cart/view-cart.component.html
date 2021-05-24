@@ -1,0 +1,68 @@
+<div class="component">
+ <div class="card">
+     <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 30px;">
+                    
+                </th>
+                <th colspan="2">Product Info</th>
+                <th>QTY</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="cart_items.length == 0">
+                <td colspan="5" align="center">No items added on cart.  <a [routerLink]="['home']">Shop now</a></td>
+            </tr>
+            <tr *ngFor="let data of cart_items">
+                <td></td>
+                <td class="img-view-cart">
+                    <img [src]="data.img" class="img-view-cart">
+                </td>
+                <td>
+                    <strong>{{ data.product_name }}</strong>
+                    <br>
+                    {{ data.size.size }}  
+                    <br>
+                    {{ data.color.color }}
+                </td>
+                <td>
+                    {{ data.quantity }}
+                </td>
+                <td>
+                    {{ data.total_price }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class='summary'>
+        <div class="summary__details">
+            <div class="summary__details__box">
+                <div class="form-group">
+                    <label for="total_price">Grand Total</label>
+                    <span id="total_price" class="pull-right">{{  grand_total }} </span>
+                </div>
+                <div class="form-group">
+                    <label for="payment_method">Payment method</label>
+                    <select class="pull-right" id="payment_method" [(ngModel)]="payment_method">
+                        <option value="COD">Cash on delivery</option>
+                        <option value="GCASH">Gcash</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary__actions">
+            <ul>
+                <li>
+                    <button class="btn btn-danger" (click)="back()">Back</button>
+                </li>
+                <li>
+                    <button class="btn btn-primary" (click)="submitOrders()">Submit Order(s)</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+</div>

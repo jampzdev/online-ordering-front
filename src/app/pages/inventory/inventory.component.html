@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+
+                    </th>
+                    <th>
+                        PRODUCT NAME
+                    </th>
+                    <th>
+                        CATEGORY
+                    </th>
+                    <th>
+                        SIZE
+                    </th>
+                    <th>
+                        COLOR
+                    </th>
+                    <th>
+                        PRICE
+                    </th>
+                    <th>
+                        QTY
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let data of inventory_list">
+                    <td>
+                        <ul class="actions">
+                            <li>
+                                <button class="btn btn-warning">Update</button>
+  
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="width:60px;">
+                        <img [src]="data.img" style="width:60px;height:65px;">
+                    </td>
+                    <td>
+                        {{ data.product_name }}
+                    </td>
+                    <td>
+                        {{ data.category_name }}
+                    </td>
+                    <td>
+                        {{ data.size_name }}
+                    </td>
+                    <td>
+                        {{ data.color_name }}
+                    </td>
+                    <td>
+                        {{ data.price }}
+                    </td>
+                    <td>
+                        {{ data.quantity }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

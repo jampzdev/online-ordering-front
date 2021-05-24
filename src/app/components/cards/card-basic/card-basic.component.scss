@@ -6,16 +6,17 @@
   background-color: white;
   margin: 10px;
   &__container {
-    width: 315px;
+    width: 250px;
   }
 
   &__image-holder {
     overflow: hidden;
-    // width: 315px;
+    width: 270px;
 
     img {
       transition: transform 0.15s ease;
-
+      width: 230px;
+      height: 240px;
       &:hover {
         -ms-transform: scale(1.1); /* IE 9 */
         -webkit-transform: scale(1.1); /* Safari 3-8 */

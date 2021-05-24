@@ -3,14 +3,14 @@
 .card-specific {
   background-color: white;
   margin: 10px;
-  width: 100%;
+  width: 70%;
   text-align: justify;
 
   &__container {
+    width: 600px;
     display: inline-block;
 
     margin: 10px;
-    width: 100%;
 
     &__image-holder {
       overflow: hidden;
@@ -18,7 +18,8 @@
 
       img {
         transition: transform 0.15s ease;
-
+        width: 250px;
+        height: 270px;
         &:hover {
           -ms-transform: scale(1.1); /* IE 9 */
           -webkit-transform: scale(1.1); /* Safari 3-8 */
@@ -31,7 +32,7 @@
       padding: 5px 0px 10px;
 
       .title {
-        font-size: 20px;
+        font-size: 22px;
         margin-bottom: 5px;
         font-weight: 500;
       }
@@ -41,8 +42,64 @@
       }
 
       .price {
-        font-size: 15px;
+        font-size: 19px;
         color: orange;
+      }
+
+      .sizes {
+        margin-top: 20px;
+        font-size: 15px;
+        ul {
+          list-style-type: none;
+          margin: 10px;
+          padding: 0;
+          overflow: hidden;
+          li {
+            float: left;
+            a {
+              cursor: pointer;
+              display: block;
+              text-align: center;
+              overflow: hidden;
+              padding: 8px;
+              margin-left: 10px;
+              text-decoration: none;
+              border: 1px solid orange;
+            }
+          }
+        }
+      }
+
+      .colors {
+        margin-top: 20px;
+        font-size: 15px;
+        ul {
+          list-style-type: none;
+          margin: 10px;
+          padding: 0;
+          overflow: hidden;
+          li {
+            float: left;
+            a {
+              cursor: pointer;
+              display: block;
+              text-align: center;
+              overflow: hidden;
+              padding: 8px;
+              margin-left: 10px;
+              text-decoration: none;
+              border: 1px solid orange;
+            }
+          }
+        }
+      }
+
+      .input {
+        margin-top: 20px;
+      }
+
+      .actions {
+        margin-top: 20px;
       }
     }
   }

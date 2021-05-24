@@ -10,4 +10,15 @@ export class BaseComponent {
 
   public static color_theme: string = 'blueviolet';
   public static color_font_theme: string = 'white';
+  public static cart_data: any = [];
+
+  public static getLoggedUser() {
+    let user_logged_in: any;
+    if (localStorage.getItem('user_info') !== null) {
+      user_logged_in = localStorage.getItem('user_info');
+    } else {
+      user_logged_in = '';
+    }
+    return user_logged_in;
+  }
 }

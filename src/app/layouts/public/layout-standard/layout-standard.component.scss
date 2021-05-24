@@ -9,6 +9,27 @@
 $backgroundColor: "#000000";
 $fontColor: "#ffffff";
 
+.admin_info {
+  margin: 5px;
+  display: block;
+  height: 30px;
+  ul {
+    width: 100%;
+    li {
+      display: block;
+
+      .display_name {
+        float: left;
+      }
+      .logout {
+        float: right;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .sidebar {
   margin: auto;
   &__userinfo {

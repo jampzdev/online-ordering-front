@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            {{ order_detail.fullname }} <br>
+            {{ order_detail.grand_total }} <br>
+            <span class="badge badge-red" *ngIf="order_detail.order_status=='Pending'">{{ order_detail.order_status }}</span>
+            <span class="badge badge-green" *ngIf="order_detail.order_status!='Pending'">{{ order_detail.order_status }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of order_items_details">
+                        <td>
+                            {{ data.product_name }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

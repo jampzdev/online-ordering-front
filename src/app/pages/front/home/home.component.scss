@@ -1,10 +1,51 @@
 .product_list {
   width: 100%;
   height: 350px;
+  position: inherit;
+  display: block;
   &__overflow {
     position: inherit;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__header {
+    padding: 5px 10px;
+    background-color: #f5f7f8;
+    font-size: 16px;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: #00aaee;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: normal;
+  }
+}
+
+.first_row {
+  width: 100%;
+  display: inline-block;
+
+  &__category-menu {
+    float: left;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 350px;
+    height: 400px;
+  }
+  &__carousel {
+    margin-left: 10px;
+    float: left;
   }
 }

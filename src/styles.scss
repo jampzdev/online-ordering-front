@@ -3,7 +3,6 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 html {
-  overflow: hidden;
   height: 100%;
 }
 body {
@@ -53,4 +52,24 @@ body {
 
 .m-t-10 {
   margin-top: 10px !important;
+}
+
+.actions {
+  li {
+    padding: 5px;
+    display: inline-block;
+  }
+}
+
+.badge {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.badge-red {
+  background-color: Red;
+}
+
+.badge-green {
+  background-color: green;
 }

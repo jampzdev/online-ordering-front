@@ -29,6 +29,13 @@ const routes: Routes = [
             (m) => m.ProductInfoModule
           ),
       },
+      {
+        path: 'view-cart',
+        loadChildren: () =>
+          import(`./pages/front/view-cart/view-cart.module`).then(
+            (m) => m.ViewCartModule
+          ),
+      },
     ],
   },
   {
@@ -69,6 +76,18 @@ const routes: Routes = [
             (m) => m.ProductsModule
           ),
       },
+      {
+        path: 'inventory',
+        loadChildren: () =>
+          import(`./pages/inventory/inventory.module`).then(
+            (m) => m.InventoryModule
+          ),
+      },
+      {
+        path: 'orders',
+        loadChildren: () =>
+          import(`./pages/orders/orders.module`).then((m) => m.OrdersModule),
+      },
     ],
   },
   {
@@ -76,6 +95,14 @@ const routes: Routes = [
     loadChildren: () =>
       import(`./pages/admin-login/admin-login.module`).then(
         (m) => m.AdminLoginModule
+      ),
+  },
+
+  {
+    path: 'user-login',
+    loadChildren: () =>
+      import(`./pages/user-login/user-login.module`).then(
+        (m) => m.UserLoginModule
       ),
   },
   {

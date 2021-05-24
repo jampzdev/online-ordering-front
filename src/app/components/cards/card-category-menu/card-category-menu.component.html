@@ -1,0 +1,27 @@
+<div class="card-category-menu">
+    <div class="card-category-menu__header">
+        <h6 class="card-category-menu__title">Categories</h6>
+        <a routerLink="">View More</a>
+    </div>
+    <div class="card-category-menu__content">
+        <ul class="card-category-menu__list">
+            <li
+                class="card-category-menu__items"
+                *ngFor="let option of options"
+            >
+                <a routerLink="">
+                    <img
+                        src="/assets/public/images/icons/audio_interface.svg"
+                        [src]="option.img"
+                        alt="{{ option.category_name }}"
+                        class="card-category-menu__icon"
+                        style="width: 50px;height:60px;"
+                    />
+                    <span class="card-category-menu__category-name">{{
+                        option.category_name
+                    }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

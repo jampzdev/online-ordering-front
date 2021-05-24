@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        BUYER'S NAME
+                    </th>
+                    <th>
+                        GRAND TOTAL
+                    </th>
+                    <th>
+                       ORDER STATUS
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of orders_list">
+                    <td>
+                        <ul class="actions">
+                            <li>
+                                <button class="btn btn-primary" [routerLink]="[data.id]">View</button>
+
+                            </li>
+                        </ul>
+                    </td>
+                    <td> {{ data.fullname }} </td>
+                    <td>
+                        {{ data.grand_total  }}
+                    </td>
+                    <td>
+                        <span class="badge badge-red" *ngIf="data.order_status=='Pending'">{{ data.order_status }}</span>
+                        <span class="badge badge-green" *ngIf="data.order_status!='Pending'">{{ data.order_status }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
