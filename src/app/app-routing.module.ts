@@ -36,6 +36,13 @@ const routes: Routes = [
             (m) => m.ViewCartModule
           ),
       },
+      {
+        path: 'customize',
+        loadChildren: () =>
+          import(`./pages/front/customize/customize.module`).then(
+            (m) => m.CustomizeModule
+          ),
+      },
     ],
   },
   {
@@ -105,10 +112,10 @@ const routes: Routes = [
         (m) => m.UserLoginModule
       ),
   },
-  {
-    path: '**',
-    redirectTo: 'home',
-  },
+  //   {
+  //     path: '**',
+  //     redirectTo: 'home',
+  //   },
 ];
 
 @NgModule({

@@ -1,10 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="card">
-            {{ order_detail.fullname }} <br>
-            {{ order_detail.grand_total }} <br>
-            <span class="badge badge-red" *ngIf="order_detail.order_status=='Pending'">{{ order_detail.order_status }}</span>
-            <span class="badge badge-green" *ngIf="order_detail.order_status!='Pending'">{{ order_detail.order_status }}</span>
+            <h2>Order Details</h2>
+
+            Buyer's Name : <b>{{ order_detail.fullname }} </b><br>
+            Grand Total  : <b>{{ order_detail.grand_total }}</b> <br>
+            Status:
+            <span class="badge badge-orange" style="width: 120px;" *ngIf="order_detail.order_status=='Pending'">{{ order_detail.order_status }}</span>
+            <span class="badge badge-green" style="width: 120px;"  *ngIf="order_detail.order_status!='Pending' && order_detail.order_status!='Cancelled' ">{{ order_detail.order_status }}</span>
+            <span class="badge badge-red" style="width: 120px;"  *ngIf="order_detail.order_status=='Cancelled'">{{ order_detail.order_status }}</span>
+
         </div>
     </div>
     <div class="row">
@@ -13,16 +18,48 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th>PRODUCT NAME</th>
+                        <th>SIZE</th>
+                        <th>COLOR</th>
+                        <th>TOTAL PRICE</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of order_items_details">
+                        <td style="width: 100px;">
+                            <img [src]="data.img" style="width: 100px;height:110px;">
+                        </td>
                         <td>
                             {{ data.product_name }}
+                        </td>
+                        <td>
+                            {{ data.size }}
+                        </td>
+                        <td>
+                            {{ data.color }}
+                        </td>
+                        <td>
+                            {{ data.total_price }}
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <ul class="actions">
+                <li>
+                    Select Status
+                </li>
+                <li>
+                    <select class="form-control" [(ngModel)]="order_status_selected">
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Picked Up">Picked Up</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </li>
+                <li>
+                    <button class="btn-primary" (click)="changeOrderStatus()">Change Order Status</button>
+                </li>
+            </ul>
         </div>
     </div>
     

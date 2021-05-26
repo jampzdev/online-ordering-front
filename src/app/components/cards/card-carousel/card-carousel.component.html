@@ -1,0 +1,25 @@
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+
+  
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://cdn.mos.cms.futurecdn.net/MspxajGqFAXT8EEYkB2jSC.jpg" alt="Los Angeles">
+      </div>
+      <div class="carousel-item" *ngFor="let data of inventory_list">
+        <img [src]="data.img">
+      </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon" style="color:red"></span>
+    </a>
+  
+</div>

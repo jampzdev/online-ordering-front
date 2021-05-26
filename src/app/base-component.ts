@@ -12,6 +12,14 @@ export class BaseComponent {
   public static color_font_theme: string = 'white';
   public static cart_data: any = [];
 
+  public static design_bike: any = {
+    wheels: 'http://localhost:3001/1621956546735.png',
+    frame: 'http://localhost:3001/1621957192967.png',
+    seat: 'http://localhost:3001/1621960292231.png',
+    sprocket: 'http://localhost:3001/1621962859671.png',
+    fork: 'http://localhost:3001/1621964536665.png',
+  };
+
   public static getLoggedUser() {
     let user_logged_in: any;
     if (localStorage.getItem('user_info') !== null) {

@@ -1,0 +1,72 @@
+<h1>Customize your own bike</h1>
+
+<div class="row">
+    <div class="card">
+        <h2>Bike Preview</h2>
+        <div class="design-bike">
+            <div class="design-bike__wheels">
+                <img [src]="design_bike.wheels">
+            </div>
+            <div class="design-bike__frame">
+                <img [src]="design_bike.frame">
+            </div>
+            <div class="design-bike__wheels-right">
+                <img [src]="design_bike.wheels">
+            </div>
+
+            <div class="design-bike__seat">
+                <img [src]="design_bike.seat">
+            </div>
+
+            <div class="design-bike__sprocket">
+                <img [src]="design_bike.sprocket">
+            </div>
+
+            <div class="design-bike__fork">
+                <img [src]="design_bike.fork">
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    
+    <app-card-customize [options]="wheels" title="Wheels"></app-card-customize>
+    <app-card-customize [options]="frame" title="Frames"></app-card-customize>
+    <app-card-customize [options]="forks" title="Forks"></app-card-customize>
+    <!-- <app-card-customize [options]="stems" title="Stem"></app-card-customize> -->
+    <app-card-customize [options]="seat" title="Seats"></app-card-customize>
+    <app-card-customize [options]="sprocket" title="Sprockets"></app-card-customize>
+
+</div>
+
+<!-- 
+<div class="container">
+    <div class="card">
+        <div class='summary'>
+            <h3>Order Summary</h3>
+
+            <div class="summary__details">
+                <div class="summary__details__box">
+                    <div class="form-group">
+                        <label for="total_price">Grand Total</label>
+                        <span id="total_price" class="pull-right"></span>
+                    </div>
+ 
+                </div>
+            </div>
+    
+            <div class="summary__actions">
+                <ul>
+                    <li>
+                        <button class="btn btn-danger">Back</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-primary">Submit Order(s)</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+     </div>
+</div> -->

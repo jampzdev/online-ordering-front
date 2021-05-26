@@ -8,9 +8,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./brands.component.scss'],
 })
 export class BrandsComponent implements OnInit {
-  modalIsShow = 'ADD';
+  modalIsShow = false;
   brand_list: any = [];
   brand_name = '';
+  brand_img: any = '';
   constructor(private API: ApiService) {}
 
   ngOnInit(): void {
@@ -18,10 +19,10 @@ export class BrandsComponent implements OnInit {
   }
 
   toggleAdd() {
-    if (this.modalIsShow == 'ADD') {
-      this.modalIsShow = 'CANCEL';
+    if (this.modalIsShow == true) {
+      this.modalIsShow = false;
     } else {
-      this.modalIsShow = 'ADD';
+      this.modalIsShow = true;
     }
   }
 
@@ -41,5 +42,14 @@ export class BrandsComponent implements OnInit {
       this.getBrands();
       Swal.fire('Success!', 'New record has been saved.', 'success');
     });
+  }
+
+  handleUpload(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.brand_img = reader.result;
+    };
+    reader.readAsDataURL(file);
   }
 }

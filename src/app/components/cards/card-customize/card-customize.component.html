@@ -1,0 +1,28 @@
+<div class="card-basic">
+    <div class="container">
+        <div class="card-basic__container">
+            <div class="card-basic__image-holder">
+
+            </div>
+    
+            <div class="card-basic__details">
+                <div class="title">
+                    {{ title }}
+                </div>
+                <div class="description">
+                    <select [(ngModel)]="selected" (change)="selectedChange()" class="form-control">
+                        <option *ngFor="let option of options;let i = index" value="{{i}}">{{ option.product_name }} - {{ option.size_name }} - {{ option.color_name }}</option>
+                    </select>
+                </div>
+                <div class="img_prev">
+                    <img [src]="img">
+                </div>
+                <div class="price">
+                    <span>
+                        {{ price }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

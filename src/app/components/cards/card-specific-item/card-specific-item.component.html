@@ -1,5 +1,7 @@
 
 <div class="card-specific">
+    <h3>Product Information</h3>
+    <hr>
     <div class="card-specific__container">
             <div class="card-specific__container__image-holder" style="float:left;margin:20px">
                 <img [src]='itemInfo.img' alt="" />
@@ -49,17 +51,25 @@
 
                 <div class="input">
                     <div class="row">
+                        
                         <div class="col">
                             <div class="form-group">
                                 <label for="qty">Qty</label>
-                                <input id="qty" type="text" class="form-control" [(ngModel)]="qty">
+                                <input id="qty" type="number" class="form-control" [(ngModel)]="qty" min="1">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="actions">
-                    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+                    <ul>
+                        <li>
+                            <button class="btn btn-primary btn-m" (click)="addToCart()">Add to Cart</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-danger btn-m" (click)="back()">Back</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
 

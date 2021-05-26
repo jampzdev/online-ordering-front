@@ -84,4 +84,19 @@ export class ViewCartComponent implements OnInit {
   back() {
     window.history.back();
   }
+
+  removeToCart(i: any) {
+    Swal.fire({
+      title: 'Are you sure you want to remove this from cart?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        BaseComponent.cart_data.splice(i, 1);
+        this.cart_items = BaseComponent.cart_data;
+        this.getGrandTotal(this.cart_items);
+      }
+    });
+  }
 }

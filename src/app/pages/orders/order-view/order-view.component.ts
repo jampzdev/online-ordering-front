@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-view',
@@ -12,6 +13,7 @@ export class OrderViewComponent implements OnInit {
   key: any = '';
   order_detail: any = {};
   order_items_details: any = [];
+  order_status_selected: any = '';
   ngOnInit(): void {
     this.getSpecificOrder();
     this.getSpecificDetails();
@@ -34,6 +36,24 @@ export class OrderViewComponent implements OnInit {
       key: this.key,
     }).subscribe((data) => {
       this.order_items_details = data.devMessage;
+      console.log('test', this.order_items_details);
     });
+  }
+
+  changeOrderStatus() {
+    this.key = this.route.snapshot.paramMap.get('key');
+
+    if (this.order_status_selected == '') {
+      Swal.fire('Oops', 'Please select a status', 'warning');
+    } else {
+      this.API.post('/orders/change-status', {
+        key: this.key,
+        order_status: this.order_status_selected,
+      }).subscribe((data) => {
+        Swal.fire('Success', 'Order status has been changed', 'success');
+        this.getSpecificOrder();
+        this.getSpecificDetails();
+      });
+    }
   }
 }

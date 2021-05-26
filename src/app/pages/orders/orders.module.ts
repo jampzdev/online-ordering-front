@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OrdersComponent } from './orders.component';
-import { OrderViewComponent } from './order-view/order-view.component';
 
 const ORDERS_ROUTES = [
   { path: '', component: OrdersComponent },
-  { path: ':key', component: OrderViewComponent },
+  {
+    path: ':key',
+    loadChildren: () =>
+      import(`./order-view/order-view.module`).then((m) => m.OrderViewModule),
+  },
 ];
 
 @NgModule({

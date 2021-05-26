@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 import { CardBasicComponent } from 'src/app/components/cards/card-basic/card-basic.component';
 import { CardCategoryMenuComponent } from 'src/app/components/cards/card-category-menu/card-category-menu.component';
 import { CardSpecificItemComponent } from 'src/app/components/cards/card-specific-item/card-specific-item.component';
+import { CardCarouselComponent } from 'src/app/components/cards/card-carousel/card-carousel.component';
+import { CardCustomizeComponent } from 'src/app/components/cards/card-customize/card-customize.component';
+import { CardHomeComponent } from 'src/app/components/cards/card-home/card-home.component';
 
 import { CartComponent } from 'src/app/components/cart/cart/cart.component';
 
@@ -18,6 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardSpecificItemComponent,
     CartComponent,
     CardCategoryMenuComponent,
+    CardCarouselComponent,
+    CardCustomizeComponent,
+    CardHomeComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   exports: [
@@ -26,6 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardSpecificItemComponent,
     CartComponent,
     CardCategoryMenuComponent,
+    CardCarouselComponent,
+    CardCustomizeComponent,
+    CardHomeComponent,
   ],
 })
 export class SharedModule {}

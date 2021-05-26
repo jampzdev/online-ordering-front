@@ -1,15 +1,19 @@
+.product_container {
+  height: 500px;
+}
+
 .product_list {
   width: 100%;
-  height: 350px;
   position: inherit;
+  padding: 5px;
   display: block;
   &__overflow {
-    position: inherit;
+    position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: white;
     width: 100%;
-    height: 100%;
+    height: 450px;
     padding: 0;
     margin: 0;
   }
@@ -35,17 +39,19 @@
 
 .first_row {
   width: 100%;
-  display: inline-block;
 
   &__category-menu {
-    float: left;
     overflow-y: hidden;
     overflow-x: hidden;
-    width: 350px;
+    width: 25%;
     height: 400px;
-  }
-  &__carousel {
-    margin-left: 10px;
+    display: inline-block;
     float: left;
+  }
+
+  &__carousel {
+    display: inline-block;
+    float: left;
+    width: 75%;
   }
 }

@@ -3,8 +3,7 @@
      <table class="table">
         <thead>
             <tr>
-                <th style="width: 30px;">
-                    
+                <th style="width: 100px;">
                 </th>
                 <th colspan="2">Product Info</th>
                 <th>QTY</th>
@@ -15,8 +14,14 @@
             <tr *ngIf="cart_items.length == 0">
                 <td colspan="5" align="center">No items added on cart.  <a [routerLink]="['home']">Shop now</a></td>
             </tr>
-            <tr *ngFor="let data of cart_items">
-                <td></td>
+            <tr *ngFor="let data of cart_items;let i = index">
+                <td>
+                    <ul class="actions">
+                        <li>
+                            <button class="btn btn-danger btn-m" (click)="removeToCart(i)"><i class="bi bi-trash"></i></button>
+                        </li>
+                    </ul>
+                </td>
                 <td class="img-view-cart">
                     <img [src]="data.img" class="img-view-cart">
                 </td>
@@ -56,10 +61,10 @@
         <div class="summary__actions">
             <ul>
                 <li>
-                    <button class="btn btn-danger" (click)="back()">Back</button>
+                    <button class="btn btn-danger btn-m" (click)="back()">Back</button>
                 </li>
                 <li>
-                    <button class="btn btn-primary" (click)="submitOrders()">Submit Order(s)</button>
+                    <button class="btn btn-primary btn-m" (click)="submitOrders()">Submit Order(s)</button>
                 </li>
             </ul>
         </div>

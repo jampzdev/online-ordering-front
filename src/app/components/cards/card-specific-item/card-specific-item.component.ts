@@ -58,6 +58,16 @@ export class CardSpecificItemComponent implements OnInit {
   }
 
   addToCart() {
+    if (this.selected_size.length == 0) {
+      Swal.fire('Oops', 'Please select a size', 'warning');
+      return;
+    }
+
+    if (this.selected_color.length == 0) {
+      Swal.fire('Oops', 'Please select a color', 'warning');
+      return;
+    }
+
     if (this.qty == '') {
       Swal.fire('Oops', 'Please enter a quantity', 'warning');
     } else {
@@ -80,5 +90,9 @@ export class CardSpecificItemComponent implements OnInit {
 
       Swal.fire('Success!', 'Item has been added to cart', 'success');
     }
+  }
+
+  back() {
+    window.history.back();
   }
 }

@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./layout-front.component.scss'],
 })
 export class LayoutFrontComponent implements OnInit {
+  cart_data = BaseComponent.cart_data;
+
   color_theme = BaseComponent.color_theme;
   color_font_theme = BaseComponent.color_font_theme;
   title = '';

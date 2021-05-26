@@ -1,32 +1,45 @@
-<div class="toolbar">
-    <button (click)="toggleAdd()">{{ modalIsShow }}</button>
+<div class="container">
+    <div class="toolbar" *ngIf="modalIsShow==false">
+        <button (click)="toggleAdd()" class="btn btn-primary"><i class="bi bi-plus-lg"></i> ADD NEW</button>
+    </div>
+
+    <div class="card" *ngIf="modalIsShow==true">
+        <div class="row">
+            <div class="col">
+                <img [src] = "brand_img" style="width:250px;height: 250px;float:right">
+                <input type="file" id="brand_img" (change)="handleUpload($event)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="brand_name">Brand Name</label>
+                    <input type="text" class="form-control" id="brand_name" [(ngModel)]="brand_name" >
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="card" *ngIf="modalIsShow=='CANCEL'">
-    <table class='table'>
-        <tr>
-            <td>Brand Name</td>
-            <td><input type="text" [(ngModel)]="brand_name"></td>
-            <td>
-                <button (click)="saveBrand()">SAVE</button>
-            </td>
-        </tr>
-    </table>
-</div>
-
-<div class="card">
-   <table class="table table-striped">
-       <tr>
-           <th>ID</th>
-           <th>BRAND NAME</th>
-       </tr>
-       <tr *ngFor="let brand of brand_list">
-           <td align="center">
-            {{ brand.id }}
-           </td>
-           <td align="center">
-            {{ brand.brand_name }}
-           </td>
-       </tr>
-   </table>
+<div class="container">
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>BRAND NAME</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let brand of brand_list">
+                    <td>
+                        {{ brand.id }}
+                    </td>
+                    <td>
+                        {{ brand.brand_name }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

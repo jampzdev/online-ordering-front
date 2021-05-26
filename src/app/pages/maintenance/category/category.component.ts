@@ -25,6 +25,7 @@ export class CategoryComponent implements OnInit {
       this.modalIsShow = true;
     }
   }
+
   getCategories() {
     this.API.post('/category/get').subscribe((data) => {
       console.log(data.devMessage);

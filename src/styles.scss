@@ -73,3 +73,26 @@ body {
 .badge-green {
   background-color: green;
 }
+
+.badge-orange {
+  background-color: orange;
+}
+
+.hidden {
+  display: none;
+}
+
+.v-middle {
+  vertical-align: middle;
+  display: inline;
+}
+
+.btn-m {
+  height: auto;
+  width: auto;
+
+  i {
+    font-size: 16px;
+  }
+  font-size: 16px;
+}

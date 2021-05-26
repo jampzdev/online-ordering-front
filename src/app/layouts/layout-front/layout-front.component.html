@@ -3,16 +3,32 @@
     <div class="second_toolbar__nav">
         <ul *ngIf="user_logged_in==''">
             <li>
-                <a [routerLink]="['user-login']">Login</a>
+                <a [routerLink]="['home']">Home</a>
             </li>
             <li>
-                <a>Sign-up</a>
+                <a [routerLink]="['customize']">Design your own bike</a>
+            </li>
+            <li>
+                <a [routerLink]="['user-login']">Login</a>
             </li>
         </ul>
         <ul *ngIf="user_logged_in!=''">
             <li>
+                <a [routerLink]="['home']">Home</a>
+            </li>
+
+            <li>
                 Hello {{ user_logged_in.displayname }}!
             </li>
+
+            <li>
+                <a [routerLink]="['customize']">My Orders</a>
+            </li>
+
+            <li>
+                <a [routerLink]="['customize']">Design your own bike</a>
+            </li>
+
             <li>
                 <a (click)="logout()">Logout</a>
             </li>
@@ -30,6 +46,9 @@
     <router-outlet></router-outlet>
 </div>
 
-<div class="footer">
+<button [routerLink]="['view-cart']" class="button-round">
+    <i class="bi bi-cart"></i> {{ cart_data.length }}</button>
+
+<!-- <div class="footer">
     <app-cart style="width: 100%;right:0px"></app-cart>
-</div>
+</div> -->

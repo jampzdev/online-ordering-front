@@ -3,8 +3,12 @@
 .card-specific {
   background-color: white;
   margin: 10px;
-  width: 70%;
+  width: 90%;
   text-align: justify;
+
+  h3 {
+    padding: 10px;
+  }
 
   &__container {
     width: 600px;
@@ -100,7 +104,22 @@
 
       .actions {
         margin-top: 20px;
+        ul {
+          li {
+            display: inline-block;
+          }
+        }
       }
     }
+  }
+}
+
+.number-txtbox {
+  span {
+    display: inline-block;
+  }
+
+  input {
+    display: inline-block;
   }
 }

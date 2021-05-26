@@ -2,18 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { OrderViewComponent } from './order-view.component';
+import { CustomizeComponent } from './customize.component';
 
-const ORDER_VIEW_ROUTES = [{ path: '', component: OrderViewComponent }];
+// Component imports
+
+import { SharedModule } from 'src/app/shared/shared.module';
+
+const CUSTOMIZE_ROUTES = [{ path: '', component: CustomizeComponent }];
 
 @NgModule({
-  declarations: [OrderViewComponent],
+  declarations: [CustomizeComponent],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    RouterModule.forChild(ORDER_VIEW_ROUTES),
+    RouterModule.forChild(CUSTOMIZE_ROUTES),
   ],
 })
-export class OrderViewModule {}
+export class CustomizeModule {}
