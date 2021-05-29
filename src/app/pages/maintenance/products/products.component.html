@@ -1,12 +1,20 @@
 <div class="container">
+    <h2>Products</h2>
+
     <div class="toolbar" *ngIf="modalIsShow==false">
         <button (click)="toggleAdd()" class="btn btn-primary"><i class="bi bi-plus-lg"></i> ADD NEW</button>
     </div>
 
-    <div class="toolbar" *ngIf="modalIsShow==true">
-        <button (click)="toggleAdd()" class="btn btn-danger m-r-10"> CANCEL</button>
-        <button  class="btn btn-primary" (click)="saveProduct()">SAVE</button>
-    </div>
+    <ul class="actions" style="padding:0px" *ngIf="modalIsShow==true">
+        <li>
+            <button (click)="saveProduct()" class="btn btn-success"> SAVE</button>
+
+        </li>
+        <li>
+            <button (click)="cancel()" class="btn btn-danger"> CANCEL</button>
+        </li>
+    </ul>
+
 </div>
 
 <div class="container" *ngIf="modalIsShow==true">
@@ -146,11 +154,11 @@
 </div>
 
 <div class="container">
+
     <div class="card">
        <table class="table table-striped">
            <thead>
                <tr>
-                   <th>ACTION(S)</th>
                    <th></th>
                    <th>PRODUCT NAME</th>
                    <th>CATEGORY NAME</th>
@@ -163,9 +171,7 @@
                 <td colspan="5" align="center">No record(s) found.</td>
                </tr>
                <tr *ngFor="let product of product_list">
-                   <td>
-                    {{ product.id }}
-                   </td>
+
                    <td>
                     <img src= "{{product.img}}" style="width: 90px;height: 100px;"/>
                    </td>

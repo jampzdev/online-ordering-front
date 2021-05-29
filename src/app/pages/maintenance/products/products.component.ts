@@ -155,4 +155,12 @@ export class ProductsComponent implements OnInit {
     };
     reader.readAsDataURL(file);
   }
+
+  cancel() {
+    this.product_name = '';
+    this.product_desc = '';
+    this.brand_name = '';
+    this.category_name = '';
+    this.toggleAdd();
+  }
 }

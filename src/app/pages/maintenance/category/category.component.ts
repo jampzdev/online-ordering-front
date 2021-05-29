@@ -12,6 +12,8 @@ export class CategoryComponent implements OnInit {
   category_list: any = [];
   category_name = '';
   category_img: any = '';
+  category_key: any = '';
+  is_new_img: any = '';
   constructor(private API: ApiService) {}
 
   ngOnInit(): void {
@@ -24,6 +26,15 @@ export class CategoryComponent implements OnInit {
     } else {
       this.modalIsShow = true;
     }
+  }
+
+  toggleEdit(data: any) {
+    if (this.modalIsShow == false) {
+      this.toggleAdd();
+    }
+    this.category_name = data.category_name;
+    this.category_key = data.id;
+    this.category_img = data.img;
   }
 
   getCategories() {
@@ -61,5 +72,55 @@ export class CategoryComponent implements OnInit {
       this.category_img = reader.result;
     };
     reader.readAsDataURL(file);
+  }
+
+  updateCategory() {
+    let isUploaded = this.isBase64(this.category_img);
+    if (isUploaded == true) {
+      this.API.post('/upload/save', {
+        base64image: this.category_img,
+      }).subscribe((dataUpld) => {
+        this.API.post('/category/update', {
+          key: this.category_key,
+          category_name: this.category_name,
+          img: dataUpld.devMessage,
+        }).subscribe((data) => {
+          this.getCategories();
+          this.cancel();
+          Swal.fire('Success!', 'Record has been updated.', 'success');
+        });
+      });
+    } else {
+      this.API.post('/category/update', {
+        key: this.category_key,
+        category_name: this.category_name,
+        img: this.category_img,
+      }).subscribe((data) => {
+        this.getCategories();
+        this.cancel();
+        Swal.fire('Success!', 'Record has been updated.', 'success');
+      });
+    }
+  }
+
+  cancel() {
+    this.category_name = '';
+    this.category_key = '';
+    this.category_img = '';
+    this.toggleAdd();
+  }
+
+  isBase64(str: any) {
+    var matches = str.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+
+    if (matches == null) {
+      return false;
+    } else {
+      if (matches.length !== 3) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

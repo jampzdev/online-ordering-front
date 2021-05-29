@@ -1,5 +1,5 @@
 <div class="container">
-
+    <h2>Inventory</h2>
     <div class="card" *ngIf="modalIsShow==true">
         <div class="row">
             <div class="col">
@@ -12,7 +12,7 @@
         <div class='row'>
             <ul class="actions">
                 <li>
-                    <button class="btn btn-warning" (click)="updateInventory()">Update</button>
+                    <button class="btn btn-success" (click)="updateInventory()">Update</button>
                 </li>
                 <li>
                     <button class="btn btn-danger" (click)="toggleForm()">Cancel</button>
@@ -58,7 +58,7 @@
                     <td>
                         <ul class="actions">
                             <li>
-                                <button class="btn btn-success" (click)="toggleTxt(data)">Edit</button>
+                                <button class="btn btn-warning" (click)="toggleTxt(data)">Edit</button>
                             </li>
                         </ul>
                     </td>

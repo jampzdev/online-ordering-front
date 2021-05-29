@@ -1,23 +1,33 @@
 <div class="container">
+    <h2>Brands</h2>
+
     <div class="toolbar" *ngIf="modalIsShow==false">
         <button (click)="toggleAdd()" class="btn btn-primary"><i class="bi bi-plus-lg"></i> ADD NEW</button>
     </div>
 
+    <ul class="actions" style="padding:0px" *ngIf="modalIsShow==true">
+        <li>
+            <button *ngIf="brand_key ==''" (click)="saveBrand()" class="btn btn-success"> SAVE</button>
+            <button *ngIf="brand_key !=''" (click)="updateBrand()" class="btn btn-success"> UPDATE</button>
+
+        </li>
+        <li>
+            <button (click)="cancel()" class="btn btn-danger"> CANCEL</button>
+
+        </li>
+    </ul>
+
     <div class="card" *ngIf="modalIsShow==true">
-        <div class="row">
-            <div class="col">
-                <img [src] = "brand_img" style="width:250px;height: 250px;float:right">
-                <input type="file" id="brand_img" (change)="handleUpload($event)">
-            </div>
-        </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="brand_name">Brand Name</label>
-                    <input type="text" class="form-control" id="brand_name" [(ngModel)]="brand_name" >
+                    <input type="text" class="form-control" id="brand_name" [(ngModel)]="brand_name" maxlength="50">
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 
@@ -26,14 +36,21 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th style="width: 150px;">ACTION</th>
                     <th>BRAND NAME</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let brand of brand_list">
                     <td>
-                        {{ brand.id }}
+                        <ul class="actions">
+                            <li>
+                                <button class="btn btn-warning" (click)="toggleEdit(brand)">
+                                    Edit
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- {{ brand.id }} -->
                     </td>
                     <td>
                         {{ brand.brand_name }}

@@ -12,6 +12,7 @@ export class BrandsComponent implements OnInit {
   brand_list: any = [];
   brand_name = '';
   brand_img: any = '';
+  brand_key: any = '';
   constructor(private API: ApiService) {}
 
   ngOnInit(): void {
@@ -34,13 +35,33 @@ export class BrandsComponent implements OnInit {
   }
 
   saveBrand() {
+    if (this.brand_name == '') {
+      Swal.fire('Oops', 'Please enter a brand name', 'warning');
+      return;
+    }
+
     this.API.post('/brand/save', {
       brand_name: this.brand_name,
     }).subscribe((data) => {
-      this.brand_name = '';
-      this.toggleAdd();
+      this.cancel();
       this.getBrands();
       Swal.fire('Success!', 'New record has been saved.', 'success');
+    });
+  }
+
+  updateBrand() {
+    if (this.brand_name == '') {
+      Swal.fire('Oops', 'Please enter a brand name', 'warning');
+      return;
+    }
+
+    this.API.post('/brand/update', {
+      key: this.brand_key,
+      brand_name: this.brand_name,
+    }).subscribe((data) => {
+      this.cancel();
+      this.getBrands();
+      Swal.fire('Success!', 'Record has been updated', 'success');
     });
   }
 
@@ -51,5 +72,19 @@ export class BrandsComponent implements OnInit {
       this.brand_img = reader.result;
     };
     reader.readAsDataURL(file);
+  }
+
+  toggleEdit(data: any) {
+    if (this.modalIsShow == false) {
+      this.toggleAdd();
+    }
+    this.brand_name = data.brand_name;
+    this.brand_key = data.id;
+  }
+
+  cancel() {
+    this.brand_name = '';
+    this.brand_key = '';
+    this.toggleAdd();
   }
 }

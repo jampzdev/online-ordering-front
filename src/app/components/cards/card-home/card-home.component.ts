@@ -7,24 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardHomeComponent implements OnInit {
   @Input() image: string = 'https://via.placeholder.com/315x190';
-  @Input() title: string = 'Why We Exist';
-  @Input() description: string =
-    ' We’re committed to providing our customers with the best products and services to empower them to achieve anything.';
-  @Input() data: any = [
-    {
-      key: '',
-      product_name: '',
-      product_desc: '',
-      category_id: '',
-      brand_id: '',
-      brand_name: '',
-      category_name: '',
-      size_name: '',
-      color_name: '',
-      quantity: '',
-      is_active: '',
-    },
-  ];
+  @Input() title: string = 'Title';
+  @Input() value: string = '0';
+  @Input() background_color: string = 'white';
+  @Input() font_color: string = 'black';
+
   constructor() {}
 
   ngOnInit(): void {}

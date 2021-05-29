@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base-component';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-layout-standard',
   templateUrl: './layout-standard.component.html',

@@ -1,12 +1,22 @@
 <div class="container">
+    <h2>Categories</h2>
+
     <div class="toolbar" *ngIf="modalIsShow==false">
         <button (click)="toggleAdd()" class="btn btn-primary"><i class="bi bi-plus-lg"></i> ADD NEW</button>
     </div>
 
-    <div class="toolbar" *ngIf="modalIsShow==true">
-        <button (click)="toggleAdd()" class="btn btn-danger m-r-10"> CANCEL</button>
-        <button  class="btn btn-primary" (click)="saveCategory()">SAVE</button>
-    </div>
+    <ul class="actions" style="padding:0px" *ngIf="modalIsShow==true">
+        <li>
+            <button *ngIf="category_key ==''" (click)="saveCategory()" class="btn btn-success"> SAVE</button>
+            <button *ngIf="category_key !=''" (click)="updateCategory()" class="btn btn-success"> UPDATE</button>
+
+        </li>
+        <li>
+            <button (click)="cancel()" class="btn btn-danger"> CANCEL</button>
+
+        </li>
+    </ul>
+
 </div>
 
 <div class="container">
@@ -44,7 +54,13 @@
                 </tr>
                 <tr *ngFor="let category of category_list">
                     <td>
-                        {{ category.id }}
+                        <ul class="actions">
+                            <li>
+                                <button class="btn btn-warning" (click)="toggleEdit(category)">
+                                    Edit
+                                </button>
+                            </li>
+                        </ul>
                     </td>
                     <td>
                         <img src= "{{category.img}}" style="width: 90px;height: 100px;"/>

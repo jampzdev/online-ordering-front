@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import Swal from 'sweetalert2';
+import { windowWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'app-order-view',
@@ -55,5 +56,9 @@ export class OrderViewComponent implements OnInit {
         this.getSpecificDetails();
       });
     }
+  }
+
+  back() {
+    window.history.back();
   }
 }

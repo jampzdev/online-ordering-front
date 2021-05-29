@@ -1,6 +1,7 @@
 <div class="container">
-    <app-card-home></app-card-home>
-    <app-card-home></app-card-home>
-    <app-card-home></app-card-home>
-    <app-card-home></app-card-home>
+    <h2>Dashboard</h2>
+    <app-card-home title="Pending Orders" [value]="pending_order" background_color="red" font_color="white"></app-card-home>
+    <app-card-home title="Products without stocks" [value]="inventory_count" background_color="green" font_color="white"></app-card-home>
+    <app-card-home title="Number of registered users" [value]="users_count" background_color="blue" font_color="white"></app-card-home>
+    <app-card-home  title="Number of products" [value]="product_count" background_color="orange" font_color="white"></app-card-home>
 </div>
